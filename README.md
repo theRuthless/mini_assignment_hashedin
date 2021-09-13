@@ -9,7 +9,7 @@ This repo is under developement — suggestions and issues welcome!
 ## Installation
 
 1. Clone this repository: `git clone https://github.com/theRuthless/mini_assignment_hashedin.git`.
-2. `cd` into `mini_assignment_hashedin`: `cd fast_api_app`.
+2. `cd` into `mini_assignment_hashedin`
 3. Install [pyenv](https://github.com/yyuu/pyenv#installation).
 4. Install [pyenv-virtualenv](https://github.com/yyuu/pyenv-virtualenv#installation).
 5. Install Python 3.5.2: `pyenv install 3.5.2`.
