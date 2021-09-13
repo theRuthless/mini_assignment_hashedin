@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  web:
+    build:
+      context: .
+      args:
+        - ENVIRONMENT=${ENVIRONMENT}
+    volumes:
+      - .:/app
+    command: /app/start.sh
+    container_name: mini-assignment-hashedin-9.1
+    ports:
+      - "${PORT}:8000"
