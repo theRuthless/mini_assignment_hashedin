@@ -19,7 +19,9 @@ def get_db():
     finally:
         db.close()
 
-@app.get("")
+@app.get("/")
+def index():
+    return {"message": "Welcome to Hashedin"}
 
 @app.post("/users/", response_model=schemas.User)
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
@@ -41,4 +43,3 @@ def read_user(user_id: int, db: Session = Depends(get_db)):
     if db_user is None:
         raise HTTPException(status_code=404, detail="User not found")
     return db_user
-
