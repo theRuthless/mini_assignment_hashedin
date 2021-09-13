@@ -1,3 +1,4 @@
+from sqlalchemy.ext.declarative.api import declarative_base
 from sqlalchemy.orm import Session
 
 
@@ -35,3 +36,13 @@ def create_user(db: Session, user: schemas.UserCreate):
     db.refresh(db_user)
     return db_user
 
+def get_metrics(db: Session, skip: int = 0, limit: int = 100):
+    return db.query(models.Metric).offset(skip).limit(limit).all()
+
+
+def create_user_metric(db: Session, metric: schemas.MetricCreate, user_id: int):
+    db_metric = models.Item(**metric.dict(), owner_id=user_id)
+    db.add(db_metric)
+    db.commit()
+    db.refresh(db_metric)
+    return db_metric
