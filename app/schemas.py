@@ -1,7 +1,7 @@
 # schemas.py 
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql.schema import Column
-from models import Metric, MetricType, Tag
+from app.models import Metric
 from typing import List, Optional
 from datetime import datetime
 from pydantic import UUID4, BaseModel
@@ -23,6 +23,9 @@ class TagBase(BaseModel):
 
 class TagCreate(TagBase):
     pass
+
+class TagUpdate(TagBase):
+    id: int
 
 class Tag(TagBase):
     id: int
@@ -55,10 +58,12 @@ class MetricBase(BaseModel):
     metric_value: str
 
 class MetricCreate(MetricBase):
-    pass
+    metric_type_id: int
+    tag_id: int
+    owner_id: int
 
 class Metric(MetricBase):
-    id: UUID4
+    id: int
     metric_value: str
     created_at: datetime
     updated_at: datetime

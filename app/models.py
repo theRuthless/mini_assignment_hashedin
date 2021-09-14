@@ -1,6 +1,6 @@
 
 # models.py
-from sqlalchemy import Column, String, DateTime, ForeignKey, UniqueConstraint
+from sqlalchemy import Column, String, DateTime, ForeignKey, UniqueConstraint, Integer
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql.functions import current_timestamp
 from sqlalchemy.dialects.mysql import INTEGER, BOOLEAN
@@ -10,7 +10,7 @@ from enum import Enum
 
 import hashlib
 
-from database import Base
+from app.database import Base
 
 
 # User Model ORM
@@ -24,7 +24,7 @@ class User(Base):
         mail
     """
     id = Column(
-        INTEGER, primary_key=True, index=True, default=uuid4
+        INTEGER, primary_key=True, index=True
     )
     username = Column("username", String(256))
     password = Column("password", String(256))
@@ -47,7 +47,7 @@ class Tag(Base):
     """
     __tablename__ = "tags"
     id = Column(
-        INTEGER, primary_key=True, index=True, default=uuid4
+        INTEGER, primary_key=True, index=True
     )
     display_name = Column("display_name", String(256))
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
@@ -71,7 +71,7 @@ class MetricType(Base):
     """
     __tablename__ = "metric_types"
     id = Column(
-        INTEGER, primary_key=True, index=True, default=uuid4
+        INTEGER, primary_key=True, index=True
     )
     type_name = Column("type_name", String(256))
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
@@ -100,7 +100,7 @@ class Metric(Base):
     """
     __tablename__ = "metrics"
     id = Column(
-       INTEGER, primary_key=True, index=True, default=uuid4
+       INTEGER, primary_key=True, index=True
     )
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
     updated_at = Column(
@@ -109,6 +109,9 @@ class Metric(Base):
         onupdate=datetime.datetime.utcnow,
     )
     metric_value = Column("type_name", String(256))
+    metric_type_id = Column(Integer, ForeignKey("metric_types.id"))
     metric_type = relationship("MetricType")
+    tag_id = Column(Integer, ForeignKey("tags.id"))
     tag = relationship("Tag")
-    owner = relationship("User", back_populates="users")
+    owner_id = Column(Integer, ForeignKey("users.id"))
+    owner = relationship("User", back_populates="metrics")
