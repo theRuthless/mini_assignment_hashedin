@@ -22,12 +22,12 @@ If all went well then your command line prompt should now start with `(productio
 If your command line prompt does not start with `(productionready)` at this point, try running `pyenv activate productionready` or `cd ../mini_assignment_hashedin`. 
 
 ## Coverage Report
-`
------------ coverage: platform win32, python 3.9.7-final-0 -----------\n
-Name               Stmts   Miss  Cover
---------------------------------------
-app\crud.py           56     11    80%
-app\database.py        7      0   100%
+
+`----------- coverage: platform win32, python 3.9.7-final-0 -----------`
+`Name               Stmts   Miss  Cover`
+`--------------------------------------`
+`app\crud.py           56     11    80%`
+`app\database.py        7      0   100%`
 app\main.py           83      3    96%
 app\models.py         48      3    94%
 app\schemas.py        55      0   100%
@@ -36,4 +36,4 @@ app\utils.py           4      0   100%
 --------------------------------------
 TOTAL                262     17    94%
 If your command line prompt does not start with `(productionready)` at this point, try running `pyenv activate productionready` or `cd ../fast_api`. 
-`
+
