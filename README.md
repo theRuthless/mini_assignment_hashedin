@@ -20,20 +20,23 @@ This repo is under developement — suggestions and issues welcome!
 If all went well then your command line prompt should now start with `(productionready)`.
 
 If your command line prompt does not start with `(productionready)` at this point, try running `pyenv activate productionready` or `cd ../mini_assignment_hashedin`. 
-
+<br />
 ## Coverage Report
-
-`----------- coverage: platform win32, python 3.9.7-final-0 -----------`
-`Name               Stmts   Miss  Cover`
-`--------------------------------------`
-`app\crud.py           56     11    80%`
-`app\database.py        7      0   100%`
-app\main.py           83      3    96%
-app\models.py         48      3    94%
-app\schemas.py        55      0   100%
-app\test_main.py       9      0   100%
-app\utils.py           4      0   100%
+<br />
+----------- coverage: platform win32, python 3.9.7-final-0 -----------
+<br />
+Name               Stmts   Miss  Cover
+<br />
 --------------------------------------
-TOTAL                262     17    94%
-If your command line prompt does not start with `(productionready)` at this point, try running `pyenv activate productionready` or `cd ../fast_api`. 
+<br />
+app\crud.py           56     11    80%<br />
+app\database.py        7      0   100%<br />
+app\main.py           83      3    96%<br />
+app\models.py         48      3    94%<br />
+app\schemas.py        55      0   100%<br />
+app\test_main.py       9      0   100%<br />
+app\utils.py           4      0   100%<br />
+--------------------------------------<br />
+TOTAL                262     17    94%<br />
+If your command line prompt does not start with `(productionready)` at this point, try running `pyenv activate productionready` or `cd ../fast_api`. <br />
 
