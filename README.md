@@ -23,7 +23,7 @@ If your command line prompt does not start with `(productionready)` at this poin
 
 ## Coverage Report
 `
------------ coverage: platform win32, python 3.9.7-final-0 -----------
+----------- coverage: platform win32, python 3.9.7-final-0 -----------\n
 Name               Stmts   Miss  Cover
 --------------------------------------
 app\crud.py           56     11    80%
