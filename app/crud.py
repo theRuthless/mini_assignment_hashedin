@@ -47,6 +47,9 @@ def get_metrics(db: Session, skip: int = 0, limit: int = 100):
     return db.query(models.Metric).offset(skip).limit(limit).all()
 
 def create_user_metric(db: Session, metric: schemas.MetricCreate):
+    """POST user metrics
+        metric: 
+    """
     db_metric = models.Metric(**metric.dict())
     db.add(db_metric)
     db.commit()
@@ -69,12 +72,16 @@ def get_tag(db: Session, tag_id: int):
     return db.query(models.Tag).filter(models.Tag.id == tag_id).first()
 
 def get_tag_by_display_name(db: Session, display_name: str) -> Optional[models.Tag]:
+    """GET tag by name
+    """
     return db.query(models.Tag).filter(models.Tag.display_name==display_name).first()
 
 def add_tag(
         db: Session,
         tag: schemas.TagCreate,
 ) -> Optional[models.Tag]:
+    """add_tag
+    """
     tag: models.Tag = models.Tag(
         **tag.dict()
     )
@@ -86,7 +93,9 @@ def add_tag(
 def delete_tag(
         db: Session,
         tag_id: int,
-):
+): 
+    """delete_tag
+    """
     tag: models.Tag = db.query(models.Tag).filter(models.Tag.id == tag_id).first()
     db.delete(tag)
     db.commit()
@@ -107,6 +116,8 @@ def get_metric_types(db: Session, skip: int = 0, limit: int = 100):
     return db.query(models.MetricType).offset(skip).limit(limit).all()
 
 def get_metric_type_by_type_name(db: Session, type_name: str) -> Optional[models.MetricType]:
+    """get_metric_type_by_type_name
+    """
     return db.query(models.MetricType).filter(models.MetricType.type_name==type_name).first()
 
 
@@ -114,6 +125,8 @@ def add_metric_type(
         db: Session,
         metric_type: schemas.MetricCreate,
 ) -> Optional[models.MetricType]:
+    """add_metric_type
+    """
     metric_type: models.MetricType = models.MetricType(
         **metric_type.dict()
     )
@@ -126,6 +139,8 @@ def delete_metric_type(
         db: Session,
         metric_id: int,
 ):
+    """delete_metric_type
+    """
     metric_type: models.MetricType = db.query(models.MetricType).filter(models.MetricType.id == metric_id).first()
     db.delete(metric_type)
     db.commit()
